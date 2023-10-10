@@ -1,6 +1,6 @@
 # 🍾 [NovaDating TelegramWebApp](http://t.me/NovaDatingBot/app)
 
-This is the merged repository for front-end/back-end source codes of the [@NovaDatingBot](https://t.me/TeleDatingBot) telegram web app. (**containing latest commit before the dead-line of the contest.**)
+This is the merged repository for [**front-end**](https://github.com/Sina-KH/Nova-Dating-TWA) / [**back-end**](https://github.com/Sina-KH/Nova-Dating-Service) source codes of the [@NovaDatingBot](https://t.me/TeleDatingBot) telegram web app. (**containing latest commit before the dead-line of the contest.**)
 
 This bot is written as a mini-app for [Telegram Mini-App Contest](https://t.me/contest/327).
 It is developed and submitted as a dating mini-app for this contest and lets its users find their ideal friends/partner~~s~~ with mutual interests.
