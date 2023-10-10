@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  nova_dating_twa:
+    container_name: nova_dating_twa
+    image: node:18
+    restart: always
+    working_dir: /home/nova_dating/nova_dating_twa
+    volumes:
+      - ./:/home/nova_dating/nova_dating_twa
+    command: bash -c "npm i && npm run build && npm run start"
+    network_mode: "host"

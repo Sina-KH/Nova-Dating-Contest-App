@@ -1,0 +1,27 @@
+#set($cName = $NAME.substring(0,1).toUpperCase() + $NAME.substring(1))
+import {Schema, model} from 'mongoose';
+import {schemaToProps} from "@/helpers/schemaHelpers";
+
+export interface I$cName {
+    _id?: Schema.Types.ObjectId
+
+    // PROPS HERE...
+
+    createdAt?: Date
+    updatedAt?: Date
+
+    to?: (props: I${cName}Props) => Partial<I$cName>
+}
+
+const ${NAME}Schema = new Schema<I$cName>({
+    // Mongoose Schema HERE...
+}, {
+    timestamps: true
+})
+${NAME}Schema.methods.to = schemaToProps
+
+export const ${cName}Model = model<I$cName>('$collectionName', ${NAME}Schema)
+
+export enum I${cName}Props {
+    // PROPS HERE
+}

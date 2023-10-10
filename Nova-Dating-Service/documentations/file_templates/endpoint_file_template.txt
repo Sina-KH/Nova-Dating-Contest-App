@@ -1,0 +1,47 @@
+#set($cFullName = $fullName.substring(0,1).toUpperCase() + $fullName.substring(1))
+#set($cMethod = $method.toUpperCase())
+import IEnd, {IEndConfigAccess, IEndHead, IEndInput, IEndMethod, IEndOutput} from "@/endpoints/IEnd";
+
+interface I${cFullName}Input extends IEndInput {
+    // INPUT HERE
+}
+
+interface I${cFullName}Response {
+    // RESPONSE HERE
+}
+
+const ${cFullName}: IEnd<I${cFullName}Input, I${cFullName}Response> = {
+    configuration: {
+        access: IEndConfigAccess.logins
+    },
+    method: IEndMethod.${cMethod},
+    url: '${url}',
+    schema: {
+        #if ($cMethod == 'GET')
+        querystring: {
+        #else
+        body: {
+        #end
+            type: 'object',
+            properties: {
+                // INPUT_VALIDATION_HERE
+            },
+            required: []
+        }
+    },
+    handler: async function (heads: IEndHead, input: I${cFullName}Input): Promise<IEndOutput<I${cFullName}Response>> {
+        // LOGIC_HERE
+        return {
+            statusCode: 200,
+            response: {}
+        }
+    },
+    docs: {
+        name: '${docTitle}',
+        description: '${docDescription}',
+        sampleInput: {
+        }
+    }
+}
+
+export default ${cFullName}

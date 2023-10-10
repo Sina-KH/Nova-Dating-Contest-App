@@ -1,0 +1,50 @@
+{
+  "name": "nova-dating-service",
+  "version": "1.1.4",
+  "description": "Telegram mini-app contest. Dating application backend.",
+  "scripts": {
+    "build": "npx tsc",
+    "start-app": "node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/src/dating.js",
+    "start-app-dev": "tsc-watch --onSuccess \"npm run start-app\"",
+    "start-base-data": "node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/src/dating_baseData.js",
+    "start-base-data-dev": "tsc-watch --onSuccess \"npm run start-base-data\"",
+    "docs": "npx tsc && node -r ts-node/register/transpile-only -r tsconfig-paths/register dist/src/docs/docsGenerator.js",
+    "test": "mocha -r tsconfig-paths/register -r ts-node/register \"./src/{,/**/}*.test.ts\" --require test/*.spec.ts",
+    "coverage": "nyc -r lcov -e .ts -x \"*.test.ts\" npm run test"
+  },
+  "keywords": [
+    "telegram"
+  ],
+  "author": "Sina KH",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/cors": "^8.4.0",
+    "@fastify/formbody": "^7.4.0",
+    "@fastify/static": "^6.11.2",
+    "@socket.io/redis-adapter": "^8.2.1",
+    "async-mkdirp": "^1.2.7",
+    "axios": "^1.5.0",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.23.2",
+    "fastify-file-upload": "^4.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.5.2",
+    "redis": "^4.6.10",
+    "sharp": "^0.32.6",
+    "socket.io": "^4.7.2",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^1.0.1",
+    "@types/jsonwebtoken": "^9.0.3",
+    "@types/mocha-prepare": "^0.1.0",
+    "@types/node": "^18.11.18",
+    "@types/uuid": "^9.0.4",
+    "mocha-prepare": "^0.1.0",
+    "mongo-unit": "^3.3.0",
+    "prettier": "3.0.1",
+    "ts-node": "^10.9.1",
+    "tsc-watch": "^6.0.0",
+    "tsconfig-paths": "^4.1.1"
+  }
+}
